@@ -1,0 +1,43 @@
+#! /bin/sh
+
+# Loop output to the panel
+while : 
+do
+
+# Variables
+lt="^i($HOME/2bwm/left_triangle.xbm)"
+rt="^i($HOME/2bwm/right_triangle.xbm)"
+lwst="^i($HOME/2bwm/left_workspace_triangle.xbm)"
+tbg="^bg(#2d2d2d)"
+tfg="^fg(#d64937)"
+circle="^i($HOME/2bwm/circle.xbm)"
+circle2="^i($HOME/2bwm/circle_outline.xbm)"
+cbg="^bg(#d64937)"
+cfg="^fg(#ffffff)"
+ctbg="^bg(#d64937)"
+ctfg="^fg(#2d2d2d)"
+clock=`date +"%a %d %b %H:%M"`
+workspaces=4 # Choose how many workspaces you want to use. (0=1, 1=2 etc)
+
+# Save our output into a variable to pipe it to the panel
+for ((i=0;i<=$workspaces;i++))
+do
+	cws=`xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}'`
+	
+	if [ $cws -eq $i ]; then
+		ws=$ws$cbg$cfg$circle
+	else	
+		ws=$ws$cbg$cfg$circle2
+	fi
+done
+
+# Send the output
+echo "$ws$tbg$tfg$lwst^pa(875)$ctbg$ctfg$lwst$cbg$cfg É $clock $tbg$tfg$rt"
+
+# Reset variables and arrays
+ws=""
+
+# Sleep for 0.3s before we start over
+sleep 0.3
+
+done
