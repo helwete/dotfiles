@@ -1,0 +1,74 @@
+! Render setting for cairo -> pango -> gtk
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+Xft.antialias: 0
+Xft.dpi: 96
+
+! General
+urxvt*geometry: 120x40
+urxvt*loginShell:         true
+urxvt*scrollBar:         false
+urxvt*saveLines:         65535
+urxvt*override-redirect:false
+urxvt*internalBorder:       4
+URxvt.intensityStyles: false
+ 
+! Extensions
+urxvt*perl-lib:        /usr/lib/urxvt/perl/
+urxvt*perl-ext-common: default,matcher,searchable-scrollback
+urxvt*urlLauncher:     /usr/bin/dwb
+urxvt*matcher.button:  1
+ 
+! Font
+urxvt*font:xft:Tamsynmod:pixelsize=16
+
+!  - pseudo transparency
+!urxvt*shading:    50
+!urxvt*transparent:false
+
+!if unset, will reverse foreground and background
+urxvt*highlight: #2f2f2f
+
+urxvt*iso14755: false
+
+!terminal colors
+
+urxvt*cursorColor: #ffffff
+
+*foreground:#ffffff
+*background:#2d2d2d
+
+!black
+*color0: #000000
+*color8: #000000
+!red
+*color1: #d64937
+*color9: #d64937
+!Green
+*color2:    #688c7d
+*color10:   #688c7d
+
+!Yelllow
+*color3:    #ffb365
+*color11:   #ffb365
+
+!Blue
+*color4:    #68778c
+*color12:   #68778c
+
+!Magenta
+*color5:    #fdb3b2
+*color13:   #8c686a
+
+!Cyan
+*color6:    #86abd9
+*color14:   #86abd9
+!white
+*color7: #ffffff
+*color15: #ffffff  
+
+! Man pages
+URxvt.colorIT:      #FF8EAF
+URxvt.colorBD:      #ff535a
+URxvt.colorUL:      #ffe818
+
