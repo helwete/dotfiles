@@ -1,0 +1,1 @@
+/usr/bin/2bwm_dmenu.sh

@@ -28,7 +28,8 @@ do
 	if [ $cws -eq $i ]; then
 		ws=$ws$cbg$cfg$circle
 	else	
-		ws=$ws$cbg$cfg$circle2
+		#ws=$ws$cbg$cfg$circle2
+		ws="$ws^ca(1, xdotool key Super+$(($i + 1)))$cbg$cfg$circle2^ca()"
 	fi
 done
 

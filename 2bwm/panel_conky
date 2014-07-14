@@ -6,4 +6,4 @@ out_to_x no
 update_interval 0.75
 
 TEXT
-$if_mpd_playing ^fg(\#fffff)${if_match "${mpd_status}" == "Playing"}æ $endif${if_match "${mpd_status}" == "Paused"}ç $endif$mpd_artist - $mpd_title $endif ^fg(\#d64937)^i(/home/mikael/2bwm/left_triangle.xbm)^bg(\#d64937)^fg(\#ffffff) ¸ ${exec pacman -Qu | wc -l} ^bg(\#2d2d2d)^fg(\#d64937)^i(/home/mikael/2bwm/right_triangle.xbm)^bg(\#2d2d2d)^fg(\#ffffff) ^i(/home/mikael/2bwm/ram.xbm) ${memperc}% ^bg(\#2d2d2d)^fg(\#d64937)^i(/home/mikael/2bwm/left_triangle.xbm)^bg(\#d64937)^fg(\#ffffff) Ñ ${cpu cpu0}% 
+$if_mpd_playing ^fg(\#fffff)${if_match "${mpd_status}" == "Playing"}^ca(1, ncmpcpp pause) æ ^ca()$endif${if_match "${mpd_status}" == "Paused"}^ca(1, ncmpcpp play) ç ^ca()$endif$mpd_artist - $mpd_title $endif ^fg(\#d64937)^i(/home/mikael/2bwm/left_triangle.xbm)^bg(\#d64937)^fg(\#ffffff)^ca(1, urxvt -geometry 65x75 -e sudo pacman -Syu) ¸ ${exec pacman -Qu | wc -l} ^ca()^bg(\#2d2d2d)^fg(\#d64937)^i(/home/mikael/2bwm/right_triangle.xbm)^bg(\#2d2d2d)^fg(\#ffffff) ^i(/home/mikael/2bwm/ram.xbm) ${memperc}% ^bg(\#2d2d2d)^fg(\#d64937)^i(/home/mikael/2bwm/left_triangle.xbm)^bg(\#d64937)^fg(\#ffffff) Ñ ${cpu cpu0}% 
