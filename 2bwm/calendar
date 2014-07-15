@@ -9,9 +9,11 @@ lwst="^i($HOME/2bwm/left_workspace_triangle.xbm)"
 tbg="^bg(#2d2d2d)"
 tfg="^fg(#d64937)"
 
-while :
+
+while true
 do
 	clock=`date +"%a %d %b %H:%M"`
-	tee>(echo "$ctbg$ctfg$lwst$cbg$cfg É $clock $tbg$tfg$rt") >(cal)
-	sleep 59 
+  	echo "$ctbg$ctfg$lwst$cbg$cfg É $clock $tbg$tfg$rt"
+	(cal)
+	sleep 1
 done
