@@ -1,4 +1,6 @@
-#! /bin/sh
+#!/bin/sh
+
+# This script requires xdotool for the clickable workspace switcher
 
 # Variables
 lt="^i($HOME/2bwm/left_triangle.xbm)"
@@ -35,7 +37,6 @@ done
 
 # Send the output
 echo "$ws$tbg$tfg$lwst"
-#echo "$ws$tbg$tfg$lwst^pa(875)$ctbg$ctfg$lwst$cbg$cfg É $clock $tbg$tfg$rt"
 
 # Reset variables and arrays
 ws=""
