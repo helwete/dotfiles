@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# This script checks 2 different gmail accounts for new mails. If you want to check only 1 account 
+# you need to remove the last backslash and the plus character on line 10 and everything from line 11-13.
+# Last but not least you have to change line 16 to echo $x. Add your credentials and you're done.
+
+x=$(($(wget -q -O - https://mail.google.com/a/gmail.com/feed/atom \
+     --http-user=USERNAME@gmail.com \
+     --http-password="PASSWORD" \
+     --no-check-certificate | grep -o entry | `echo wc -l`) + \
+     $(wget -q -O - https://mail.google.com/a/gmail.com/feed/atom \
+     --http-user=USERNAME@gmail.com \
+     --http-password="PASSWORD" \
+     --no-check-certificate | grep -o entry | echo `wc -l`)))
+
+echo $x / 2 | bc

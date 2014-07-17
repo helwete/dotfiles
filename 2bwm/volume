@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Prints a volume icon and the volume level to dzen2
+
+vf="^i($HOME/2bwm/volume_full.xbm)"
+vh="^i($HOME/2bwm/volume_half.xbm)"
+vm="^i($HOME/2bwm/volume_muted.xbm)"
+lt="^i($HOME/2bwm/left_triangle.xbm)"
+tbg="^bg(#2d2d2d)"
+tfg="^fg(#d64937)"
+bg="^bg(#d64937)"
+fg="^fg(#ffffff)"
+
+while :
+do 
+	vol=$(amixer get Master | sed -n 's/^.*\[\([0-9]\+\)%.*$/\1/p') 
+	mute="$(amixer get Master | sed -n 's/^.*\[\([f-o]\+\).*$/\1/p')"
+	
+	# Checks volume levels and mute stauts to determine which icon to display
+	if [ "$mute" = "off" ] || [ $vol -eq 0 ]; then
+		volicon=$vm
+		vol="$vol%   "
+	else
+		if [ $vol -eq 100 ]; then
+			volicon=$vf
+			vol="$vol% "
+		elif [ $vol -le 99 ] && [ $vol -ge 10 ]; then
+			volicon=$vh
+			vol="$vol%  "
+		elif [ $vol -ge 1 ] && [ $vol -le 9 ]; then
+			volicon=$vh
+			vol="$vol%   "
+		fi
+	fi
+	
+	echo "$tbg$tfg$lt$fg$bg$volicon $vol$lt"
+        sleep 1 
+done

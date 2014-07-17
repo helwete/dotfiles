@@ -10,10 +10,12 @@ update_interval 0.75
 
 TEXT
 # MPD
-$if_mpd_playing ^fg(\#fffff)${if_match "${mpd_status}" == "Playing"}^ca(1, ncmpcpp pause) æ ^ca()$endif${if_match "${mpd_status}" == "Paused"}^ca(1, ncmpcpp play) ç ^ca()$endif$mpd_artist - $mpd_title $endif \
+$if_mpd_playing ^fg(\#fffff)${if_match "${mpd_status}" == "Playing"}^ca(1, ncmpcpp pause) æ ^ca()$endif${if_match "${mpd_status}" == "Paused"}^ca(1, ncmpcpp play) ç ^ca()$endif$mpd_artist - $mpd_title $endif\
+# Gmail
+^bg(\#2d2d2d)^fg(\#d64937)^i($HOME/2bwm/left_triangle.xbm)^bg(\#d64937)^fg(\#ffffff) Ð ${exec sh $HOME/2bwm/gmail_count } ^bg(\#2d2d2d)^fg(\#d64937)^i($HOME/2bwm/right_triangle.xbm)\
 # Pacman
-^fg(\#d64937)^i($HOME/2bwm/left_triangle.xbm)^bg(\#d64937)^fg(\#ffffff)^ca(1, urxvt -geometry 65x75 -e pacaur -Syu) ¸ ${exec x=$(pacman -Qu | wc -l); y=$(pacaur -k | wc -l); echo $(($x+$y))} ^ca()^bg(\#2d2d2d)^fg(\#d64937)^i($HOME/2bwm/right_triangle.xbm)\
+^bg(\#2d2d2d)^fg(\#ffffff) ¸ ${exec x=$(pacman -Qu | wc -l); y=$(pacaur -k | wc -l); echo $(($x+$y))} ^ca()\
 # Memory usage
-^bg(\#2d2d2d)^fg(\#ffffff) ^i($HOME/2bwm/ram.xbm) ${memperc}% \
+^bg(\#2d2d2d)^fg(\#d64937)^i($HOME/2bwm/left_triangle.xbm)^bg(\#d64937)^fg(\#ffffff) ^i($HOME/2bwm/ram.xbm) ${memperc}% ^bg(\#2d2d2d)^fg(\#d64937)^i($HOME/2bwm/right_triangle.xbm)\
 # CPU usage
-^bg(\#2d2d2d)^fg(\#d64937)^i($HOME/2bwm/left_triangle.xbm)^bg(\#d64937)^fg(\#ffffff) Ñ ${cpu cpu0}% 
+^bg(\#2d2d2d)^fg(\#ffffff) Ñ ${cpu cpu0}% 
