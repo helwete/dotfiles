@@ -52,8 +52,9 @@ font="-*-tamsynmod-medium-r-normal-*-14-101-100-100-c-70-iso8859-1"
 $HOME/2bwm/panel | dzen2 -p -ta l -fn "$font" -h $panelheight -tw $panel1width &
 $HOME/2bwm/calendar | dzen2 -p -u -fn "$font" -x $panel2xoffset -tw $panel2width -h $panelheight -w $panel2slavewidth -sa c -l 8 -e 'button1=togglecollapse' &
 conky -c $HOME/2bwm/panel_conky | dzen2 -p -ta r -fn "$font" -x $panel3xoffset -h $panelheight -tw $panel3width &
-$HOME/2bwm/volume | dzen2 -p -fn "$font" -x $panel4xoffset -h $panelheight -tw $panel4width -e 'button5=exec:amixer set Master 5%-:;button4=exec:amixer set Master 5%+:' &
+$HOME/2bwm/volume | dzen2 -p -fn "$font" -x $panel4xoffset -h $panelheight -tw $panel4width -e 'button5=exec:amixer set Master 5%-:;button4=exec:amixer set Master 5%+:;button1=exec:amixer set Master toggle:' &
 
+#sxhkd &
 urxvt &
 sudo /usr/bin/pac_sync.sh &
 exec $1
