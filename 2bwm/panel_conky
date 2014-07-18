@@ -14,7 +14,7 @@ $if_mpd_playing ^fg(\#fffff)${if_match "${mpd_status}" == "Playing"}^ca(1, ncmpc
 # Gmail
 ^bg(\#2d2d2d)^fg(\#d64937)^i($HOME/2bwm/left_triangle.xbm)^bg(\#d64937)^fg(\#ffffff) Ð ${exec sh $HOME/2bwm/gmail_count } ^bg(\#2d2d2d)^fg(\#d64937)^i($HOME/2bwm/right_triangle.xbm)\
 # Pacman
-^bg(\#2d2d2d)^fg(\#ffffff) ¸ ${exec x=$(pacman -Qu | wc -l); y=$(pacaur -k | wc -l); echo $(($x+$y))} ^ca()\
+^bg(\#2d2d2d)^fg(\#ffffff)^ca(1, urxvt -g 65x70 -e pacaur -Syu) ¸ ${exec x=$(pacman -Qu | wc -l); y=$(pacaur -k | wc -l); echo $(($x+$y))} ^ca()\
 # Memory usage
 ^bg(\#2d2d2d)^fg(\#d64937)^i($HOME/2bwm/left_triangle.xbm)^bg(\#d64937)^fg(\#ffffff) ^i($HOME/2bwm/ram.xbm) ${memperc}% ^bg(\#2d2d2d)^fg(\#d64937)^i($HOME/2bwm/right_triangle.xbm)\
 # CPU usage
