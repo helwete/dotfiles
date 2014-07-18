@@ -3,6 +3,8 @@ dotfiles
 
 Here's my collection of dotfiles. Panel for 2bwm is inside 2bwm folder. Use at your own risk!
 
+The MIT License (MIT)
+
 Copyright (c) 2014 helwete
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
